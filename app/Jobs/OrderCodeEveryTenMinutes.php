@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Models\Message;
 use Carbon\Carbon;
 use App\Models\Datalogger;
 use Illuminate\Bus\Queueable;
@@ -22,7 +23,11 @@ class OrderCodeEveryTenMinutes implements ShouldQueue
 
     public function __construct()
     {
+<<<<<<< HEAD
+       //
+=======
         //
+>>>>>>> 7236aee05ab43b09269d845dae10fe3a52beeb13
     }
 
     /**
@@ -42,6 +47,10 @@ class OrderCodeEveryTenMinutes implements ShouldQueue
             foreach ($datalogger->order_codes as $order_code) {
 
                 $gsmConnection->send($datalogger->mobile_number,$order_code->name);
+<<<<<<< HEAD
+               
+=======
+>>>>>>> 7236aee05ab43b09269d845dae10fe3a52beeb13
 
                 // Update the pivot table last_sent_at to current time after processing
                 $datalogger->order_codes()->updateExistingPivot($order_code->id, ['last_sent_at' => $now]);

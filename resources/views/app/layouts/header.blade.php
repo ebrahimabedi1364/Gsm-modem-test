@@ -13,12 +13,18 @@
     <div class="header-action">
         <a class="btn btn-primary btn-sm" href="{{ route('app.read-message') }}">بروزرسانی</a>
     </div>
+<<<<<<< HEAD
+    
+</header>
+<section class="row">
+=======
 
 
 </header>
 <section class="row">
 
    
+>>>>>>> 7236aee05ab43b09269d845dae10fe3a52beeb13
         
     @if (session('error'))
         <div class="alert alert-danger">{{ session('error') }}</div>
@@ -26,5 +32,8 @@
 
 
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> 7236aee05ab43b09269d845dae10fe3a52beeb13
 </section>

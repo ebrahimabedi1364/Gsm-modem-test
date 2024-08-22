@@ -10,7 +10,10 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use App\Http\Services\Message\GSMConnection;
+<<<<<<< HEAD
+=======
 use App\Http\Services\Message\RecieveMessageService;
+>>>>>>> 7236aee05ab43b09269d845dae10fe3a52beeb13
 
 
 class RecieveMessage implements ShouldQueue
@@ -31,9 +34,14 @@ class RecieveMessage implements ShouldQueue
     public function handle(): void
     {
        
+<<<<<<< HEAD
+        $gsmConnection = app(GSMConnection::class);
+		$arrMessages = $gsmConnection->read();
+=======
 			
 		$gsmConnection = app(GSMConnection::class);
         $arrMessages=$gsmConnection->read();
+>>>>>>> 7236aee05ab43b09269d845dae10fe3a52beeb13
 		
         $strJunk = array_shift($arrMessages);
 		

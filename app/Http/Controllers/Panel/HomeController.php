@@ -21,11 +21,14 @@ class HomeController extends Controller
 
 	public function index()
 	{
+<<<<<<< HEAD
+		
+=======
 
 		
 
+>>>>>>> 7236aee05ab43b09269d845dae10fe3a52beeb13
 		$dataloggers = Datalogger::all();
-
 		return view('app.index', compact('dataloggers'));
 	}
 
@@ -34,8 +37,6 @@ class HomeController extends Controller
 
 		
 		$arrMessages = $Connection->read();
-
-		
 
 		$strJunk = array_shift($arrMessages);
 

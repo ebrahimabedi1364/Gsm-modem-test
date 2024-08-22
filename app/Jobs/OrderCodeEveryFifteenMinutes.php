@@ -18,12 +18,19 @@ class OrderCodeEveryFifteenMinutes implements ShouldQueue
     /**
      * Create a new job instance.
      */
+<<<<<<< HEAD
+   
+=======
     
+>>>>>>> 7236aee05ab43b09269d845dae10fe3a52beeb13
 
     public function __construct()
     {
         //
+<<<<<<< HEAD
+=======
         
+>>>>>>> 7236aee05ab43b09269d845dae10fe3a52beeb13
     }
 
     /**
