@@ -192,6 +192,7 @@ class Datalogger extends Model
             } else {
                 // استفاده از preg_split برای سایر انواع
                 $strtoarray = preg_split($delimiter, $line);
+                
                 if (count($strtoarray) >= 2) {
                     $key = strtolower(trim($strtoarray[0]));
                     $value = trim($strtoarray[1]);
@@ -205,6 +206,7 @@ class Datalogger extends Model
                 }
             }
         }
+       
 
         return $messageArray;
     }

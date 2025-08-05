@@ -34,7 +34,7 @@
 
                 <section>
 
-                    <form action="{{ route('app.data-logger.order-code.update', $device) }}" method="POST">
+                    <form action="{{ route('app.data-logger.order-code.update', ['device'=>$device->id , 'orderCode' => $orderCode->id] ) }}" method="POST">
                         @csrf
                         @method('put')
 
@@ -71,7 +71,7 @@
 
                             </section>
 
-                            <section class="col-12 col-md-6 my-2">
+                            <section class="col-12 col-md-6 ">
                                 <div class="form-group">
                                     <label for="time">بازه زمانی ارسال </label>
                                     <select name="time" id="time" class="form-control form-control-sm">

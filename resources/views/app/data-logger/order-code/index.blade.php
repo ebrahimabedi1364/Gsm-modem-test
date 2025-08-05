@@ -43,7 +43,7 @@
                                     <th> آخرین ارسال کد کنترلر</th>
                                     <th>وضعیت</th>
 
-                                    {{-- <th class="max-width-16-rem text-center"><i class="fa fa-cogs"></i> تنظیمات</th> --}}
+                                    <th class="max-width-16-rem text-center"><i class="fa fa-cogs"></i> تنظیمات</th>
                                 </tr>
                             </thead>
                             <tbody>
@@ -67,22 +67,22 @@
                                         </th>
 
 
-                                        {{-- <td class="width-13-rem text-right font-size-2 ">
+                                        <td class="width-13-rem text-right font-size-2 ">
 
-                                            <a href="{{ route('app.data-logger.order-code.edit',[ 'device' => $device->id ] ) }}"
+                                            <a href="{{ route('app.data-logger.order-code.edit',[ 'device' => $orderCode->pivot->datalogger_id , 'orderCode' => $orderCode->pivot->order_code_id] ) }}"
                                                 class="btn btn-primary btn-sm"><i class="fa fa-edit"></i>
                                                 ویرایش</a>
-                                            <form action="{{ route('app.data-logger.destroy', $device->id) }}"
+                                            {{-- <form action="{{ route('app.data-logger.destroy', $device->id) }}"
                                                 method="POST" class=" btn btn-sm btn-danger">
                                                 @csrf
                                                 @method('delete')
                                                 <button class="dropdown-item" type="submit"><i class="fa fa-trash-alt"></i>
                                                     حذف</button>
-                                            </form>
+                                            </form> --}}
 
 
 
-                                        </td> --}}
+                                        </td>
                                     </tr>
                                 @endforeach
 

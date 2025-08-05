@@ -21,6 +21,7 @@ class Kernel extends ConsoleKernel
     {
         // $schedule->command('inspire')->hourly();
 
+      
         
         // $schedule->command('auto:recieveMessage')->everyThirtyMinutes();
         $schedule->job(new OrderCodeHourly)->hourly();

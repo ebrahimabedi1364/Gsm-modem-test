@@ -20,6 +20,8 @@ class UpdateLoggerbuttom extends Component
 
 
         $arrMessages = $Connection->read();
+
+        // dd($arrMessages);
     
 
         try {
@@ -73,6 +75,7 @@ class UpdateLoggerbuttom extends Component
 
                         // dd($strContent);
                         $messageArray1 = $datalogger->parseMessage($strContent);
+                        
 
                         $lastStatus = $datalogger->last_status ?? [];
 
@@ -93,7 +96,7 @@ class UpdateLoggerbuttom extends Component
                             $datalogger->save();
                         }
 
-
+                       
                         Message::create([
                             'from'    => $datalogger->mobile_number,
                             'datalogger_id' => $datalogger->id,

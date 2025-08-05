@@ -23,10 +23,23 @@ class DataloggerOrdercodeRequest extends FormRequest
     public function rules(): array
     {
         $device=$this->route('device');
-        return [
-            'order_code_id'   => ['required', 'exists:order_codes,id', new uniqueDataloggerOrderCode($device->id) ],
-            'time'   => ['required','in:60,15,30,10,0'],
+        if($this->isMethod('post')){
+            return [
+                'order_code_id'   => ['required', 'exists:order_codes,id', new uniqueDataloggerOrderCode($device->id) ],
+                'time'   => ['required','in:60,15,30,10,0'],
+    
+            ];
 
-        ];
+        }
+        else{
+            $order_code=$this->route('orderCode');
+            return [
+                'order_code_id'   => ['required', 'exists:order_codes,id', new uniqueDataloggerOrderCode($device->id,$order_code->id) ],
+                'time'   => ['required','in:60,15,30,10,0'],
+    
+            ];
+
+        }
+        
     }
 }

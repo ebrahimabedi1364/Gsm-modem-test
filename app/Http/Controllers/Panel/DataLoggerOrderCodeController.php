@@ -51,18 +51,24 @@ class DataLoggerOrderCodeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Datalogger $device)
+    public function edit(Datalogger $device,OrderCode $orderCode)
     {
         $orderCodes = OrderCode::all();
-        return view('app.data-logger.order-code.edit', compact('device', 'orderCodes'));
+       $pivotDate=$device->order_codes()->where('order_code_id',$orderCode->id)->first();
+       
+        return view('app.data-logger.order-code.edit', compact('device', 'orderCode','pivotDate','orderCodes'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(DataloggerOrdercodeRequest $request , Datalogger $device, OrderCode $orderCode)
     {
-        //
+        $currentStatus = $device->order_codes()->where('order_code_id', $orderCode->id)->first();
+       
+        $updated = $device->order_codes()->updateExistingPivot($orderCode->id, ['time' => $request->time , 'last_sent_at' => $request->last_sent_at]);
+        return view('app.data-logger.order-code.index', compact('device'))->with('swal-success', ' کد کنترل با موفقیت ویرایش شد');
+
     }
 
     /**
